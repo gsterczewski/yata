@@ -42,10 +42,10 @@ function App(){
             </BasicBar>
             </li>
             </ul>
-            <BasicBar  classes="todos__filters rounded">
-              <button>All</button>
-              <button>Active</button>
-              <button>Completed</button>
+            <BasicBar  classes="filters rounded">
+              <button className="filters__button filters__button--active">All</button>
+              <button className="filters__button">Active</button>
+              <button className="filters__button">Completed</button>
             </BasicBar>
             </main>
             <aside className="info">

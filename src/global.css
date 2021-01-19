@@ -21,6 +21,7 @@
   --header-image: url("assets/images/bg-mobile-light.jpg");
   --header-image--desktop: url("assets/images/bg-desktop-light.jpg");
   --header-color: white;
+  --item-color--active: var(--color-grayish-blue--darker);
   background-color: var(--color-grayish-blue--lighter);
 }
 .theme-dark {
@@ -35,6 +36,7 @@
   --delimiter-color: var(--color-grayish-blue--darker);
   --item-background: var(--color-grayish-blue--darkest);
   --item-color: var(--color-grayish-blue--dark);
+  --item-color--active: var(--color-grayish-blue--hover);
   --header-image: url("assets/images/bg-mobile-dark.jpg");
   --header-image--desktop: url("assets/images/bg-desktop-dark.jpg");
   --header-color: white;
@@ -119,6 +121,9 @@ ul {
   align-items: center;
   border-bottom: 1px solid var(--delimiter-color);
   padding: 1rem;
+  color: var(--item-color--active);
+}
+.todo:hover {
 }
 
 .todo__title {
@@ -131,13 +136,21 @@ ul {
   font-size: 0.9rem;
   font-weight: 700;
 }
-.todos__filters {
+.filters {
   display: flex;
   justify-content: space-around;
   font-size: 0.9rem;
   margin-top: var(--vertical-gap);
 }
-
+.filters__button {
+  font-weight: 700;
+}
+.filters__button:hover {
+  color: var(--item-color--active);
+}
+.filters__button--active {
+  color: var(--color-bright-blue);
+}
 .rounded {
   border-radius: 8px;
 }
