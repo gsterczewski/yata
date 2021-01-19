@@ -1,28 +1,40 @@
-:root{
-    --font-family: "Josefin Sans", sans-serif;
-    --color-bright-blue: hsl(220, 98%, 61%);
-    --color-check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+:root {
+  --font-family: "Josefin Sans", sans-serif;
+  --color-bright-blue: hsl(220, 98%, 61%);
+  --color-check-background: linear-gradient hsl(192, 100%, 67%) to
+    hsl(280, 87%, 65%);
 }
 
-.theme-light{
-    --color-very-light-gray: hsl(0, 0%, 98%);
-    --color-grayish-blue--light: hsl(233, 11%, 84%);
-    --color-grayish-blue--lighter: hsl(236, 33%, 92%);
-    --color-grayish-blue--dark: hsl(236, 9%, 61%);
-    --color-grayish-blue--darker: hsl(235, 19%, 35%);
+.theme-light {
+  --color-very-light-gray: hsl(0, 0%, 98%);
+  --color-grayish-blue--light: hsl(233, 11%, 84%);
+  --color-grayish-blue--lighter: hsl(236, 33%, 92%);
+  --color-grayish-blue--dark: hsl(236, 9%, 61%);
+  --color-grayish-blue--darker: hsl(235, 19%, 35%);
 }
-.theme-dark{
-    --color-blue--darker: hsl(235, 21%, 11%);
-    --color-desaturatd-blue: hsl(235, 24%, 19%);
-    --color-grayish-blue--light: hsl(234, 39%, 85%);
-    --color-grayish-blue--hover: hsl(236, 33%, 92%);
-    --color-grayish-blue--dark: hsl(234, 11%, 52%);
-    --color-grayish-blue--darker: hsl(233, 14%, 35%);
-    --color-grayish-blue--darkest: hsl(237, 14%, 26%);
+.theme-dark {
+  --color-blue--darker: hsl(235, 21%, 11%);
+  --color-desaturatd-blue: hsl(235, 24%, 19%);
+  --color-grayish-blue--light: hsl(234, 39%, 85%);
+  --color-grayish-blue--hover: hsl(236, 33%, 92%);
+  --color-grayish-blue--dark: hsl(234, 11%, 52%);
+  --color-grayish-blue--darker: hsl(233, 14%, 35%);
+  --color-grayish-blue--darkest: hsl(237, 14%, 26%);
 }
 
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
+}
+body {
+  font-family: var(--font-family);
 }
