@@ -32,5 +32,13 @@ export default function TodosContainer(){
     }
     setTodos(todos.map(todo => todo.id === id ? updateTodo(todo): todo ))
   }
-  return(<TodoList todos={todos} dndFunctions={dndFunctions} todosLeft={todosLeft} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />)
+  const clearCompleted = () => {
+    
+    const shouldDelete = window.confirm("Are your sure ?");
+    
+    if(shouldDelete){
+      setTodos(todos.filter(todo => !todo.isCompleted))
+    }
+  }
+  return(<TodoList todos={todos} dndFunctions={dndFunctions} todosLeft={todosLeft} deleteTodo={deleteTodo} toggleTodo={toggleTodo} handleClearCompleted={clearCompleted} />)
 }
