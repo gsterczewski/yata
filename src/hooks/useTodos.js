@@ -1,8 +1,19 @@
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
-
+import { filterStates } from "config";
 export default function useTodos(){
-  
+
+  const filterTodos = (todos, filter) => {
+    switch(filter){
+      case filterStates.all:
+        return todos
+      case filterStates.completed:
+        return todos.filter(todo => todo.isCompleted)
+      case filterStates.active:
+        return todos.filter(todo => !todo.isCompleted)
+    }
+  }
+
   const [todos, setTodos] = useState([{
     id:"todo-1",
     title:"do something",
@@ -13,13 +24,31 @@ export default function useTodos(){
     isCompleted: true
   }])
 
+  const [activeFilter, setActiveFilter] = useState(filterStates.all);
   const [todosLeft, setTodosLeft] = useState(0);
+  
+  const [todosToShow, setTodosToShow] = useState(filterTodos(todos,activeFilter));
 
+  useEffect(()=>{
+    setTodosToShow(filterTodos(todos,activeFilter))
+  },[activeFilter,todos])
   useEffect(()=>{
     setTodosLeft(todos.filter(todo => !todo.isCompleted).length)
     
   },[todos])
   
+  const showAllTodos = () => {
+    
+    setActiveFilter(filterStates.all)
+  }
+  const showCompletedTodos = () => {
+    setActiveFilter(filterStates.completed)
+    console.log(activeFilter)
+  }
+  const showActiveTodos = () => {
+    setActiveFilter(filterStates.active)
+    
+  }
 
   const deleteTodo = id => {
     setTodos(todos.filter(todo => todo.id !== id))
@@ -50,6 +79,7 @@ export default function useTodos(){
     newTodos.push(newTodo)
     setTodos(newTodos)
   }
+
   return {
     addTodo,
     deleteTodo,
@@ -57,6 +87,11 @@ export default function useTodos(){
     toggleTodo,
     todosLeft,
     setTodos,
-    todos
+    todos,
+    todosToShow,
+    showActiveTodos,
+    showAllTodos,
+    showCompletedTodos,
+    activeFilter
   }
 }

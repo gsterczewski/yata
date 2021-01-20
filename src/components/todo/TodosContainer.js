@@ -8,14 +8,14 @@ import useTodos from "hooks/useTodos";
 import "./todo.css";
 export default function TodosContainer(){
   
-  const { todos, addTodo, deleteTodo, toggleTodo, clearCompleted, todosLeft, setTodos } = useTodos();
-  const  dndFunctions  = useDnd(todos, setTodos);
+  const { addTodo, deleteTodo, toggleTodo, clearCompleted, todosLeft, setTodos, todosToShow, showAllTodos, showCompletedTodos, showActiveTodos, activeFilter } = useTodos();
+  const  dndFunctions  = useDnd(todosToShow, setTodos);
  
   return(
     <>
     <TodoInput handleAddTodo={addTodo} />
-    <TodoList todos={todos} dndFunctions={dndFunctions} todosLeft={todosLeft} deleteTodo={deleteTodo} toggleTodo={toggleTodo} handleClearCompleted={clearCompleted} />
-    <TodoFilters />
+    <TodoList todos={todosToShow} dndFunctions={dndFunctions} todosLeft={todosLeft} deleteTodo={deleteTodo} toggleTodo={toggleTodo} handleClearCompleted={clearCompleted} />
+    <TodoFilters handleShowAll={showAllTodos} handleShowCompleted={showCompletedTodos} handleShowActive={showActiveTodos} activeFilter={activeFilter} />
   </>
   )
 }
