@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function swapElementsInArray(arr, index1,index2){
   const copy = [...arr]
@@ -8,14 +8,7 @@ function swapElementsInArray(arr, index1,index2){
   return copy;
 }
 export default function useDnd(collection, setter){
-  
-  const [elements, setElements] = useState([...collection]);
   const [draggedElement, setDraggedElement] = useState(null);
-  
-  useEffect(() => {
-    setter(elements)
-  },[elements])
-  
   
   function handleDragstart(event){
      
@@ -33,11 +26,11 @@ export default function useDnd(collection, setter){
 
   function handleDragenter(event){
     const currentTarget = event.currentTarget;  
-    const currentElementIndex = elements.findIndex(element => element.id === currentTarget.getAttribute("id"))
-    const draggedElementIndex = elements.findIndex(element => element.id === draggedElement.getAttribute("id"))
+    const currentElementIndex = collection.findIndex(element => element.id === currentTarget.getAttribute("id"))
+    const draggedElementIndex = collection.findIndex(element => element.id === draggedElement.getAttribute("id"))
       
       if(currentElementIndex !== draggedElementIndex){
-        setElements(swapElementsInArray(elements, currentElementIndex, draggedElementIndex))
+        setter(swapElementsInArray(collection, currentElementIndex, draggedElementIndex))
       }
   }
   function handleDragover(event){
@@ -51,6 +44,6 @@ export default function useDnd(collection, setter){
     handleDragstart,
     handleDragenter,
     handleDragover,
-    handleDrop
+    handleDrop  
   }  
 }
