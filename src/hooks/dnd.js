@@ -36,14 +36,18 @@ export default function useDnd(collection, setter){
   function handleDragover(event){
     event.preventDefault();
   }
+  function handleDragend(event){
+    draggedElement.style.opacity = 1;
+    
+  }
   function handleDrop(event){
     event.preventDefault();
-    draggedElement.style.opacity = 1;
   }
   return {
     handleDragstart,
     handleDragenter,
     handleDragover,
+    handleDragend,
     handleDrop  
   }  
 }

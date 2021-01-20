@@ -12,6 +12,7 @@ export default function TodoList({todos, dndFunctions, todosLeft, deleteTodo, to
               onDragStart={dndFunctions.handleDragstart} 
               onDragEnter={dndFunctions.handleDragenter} 
               onDragOver={dndFunctions.handleDragover}
+              onDragEnd={dndFunctions.handleDragend}
               onDrop={dndFunctions.handleDrop}>
                 <Todo todo={todo} handleToggle={toggleTodo} handleDelete={deleteTodo}></Todo>
             </li>
