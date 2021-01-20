@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import "./global.css";
 import Header from "./components/header/Header";
 import BasicBar from "./components/BasicBar";
 import Todo from "./components/Todo";
+import useDnd from "./hooks/dnd";
 function App(){
   const themes = Object.freeze({
     light: "light",
@@ -11,16 +12,20 @@ function App(){
   const [activeTheme, setActiveTheme ] = useState(themes.light);
   const switchTheme = () => ( activeTheme === themes.light ? setActiveTheme(themes.dark) : setActiveTheme(themes.light) )
   const computedClass = `layout-wrapper theme-${activeTheme}`
+  
   const [todos, setTodos] = useState([{
-    id:1,
+    id:"todo-1",
     title:"do something",
     isCompleted: false
   },{
-    id:2,
+    id:"todo-2",
     title:"do something 2",
     isCompleted: true
   }])
-    return (
+  
+  const { elements, handleDragenter, handleDragstart, handleDragover, handleDrop } = useDnd(todos, setTodos);
+    
+  return (
         <div className={computedClass}>
             <Header theme ={activeTheme} handleSwitchTheme={switchTheme}/>
             <main className="main">
@@ -30,8 +35,13 @@ function App(){
               <input type="text" placeholder="Create a new todo" />
             </BasicBar>
             <ul className="todos rounded">
-            {todos.map(todo => 
-            <li key={todo.id}>
+            {elements.map((todo,index) => 
+            <li key={todo.id} id={todo.id} style={{order: index + 1}} 
+              draggable="true" 
+              onDragStart={handleDragstart} 
+              onDragEnter={handleDragenter} 
+              onDragOver={handleDragover}
+              onDrop={handleDrop}>
                 <Todo todo={todo}></Todo>
             </li>
             )}

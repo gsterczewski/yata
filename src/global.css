@@ -123,8 +123,6 @@ ul {
   padding: 1rem;
   color: var(--item-color--active);
 }
-.todo:hover {
-}
 
 .todo__title {
   flex-grow: 1;
