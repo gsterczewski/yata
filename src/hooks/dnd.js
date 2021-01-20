@@ -8,7 +8,7 @@ function swapElementsInArray(arr, index1,index2){
   return copy;
 }
 export default function useDnd(collection, setter){
-
+  
   const [elements, setElements] = useState([...collection]);
   const [draggedElement, setDraggedElement] = useState(null);
   
@@ -51,8 +51,6 @@ export default function useDnd(collection, setter){
     handleDragstart,
     handleDragenter,
     handleDragover,
-    handleDrop,
-    elements,
-    setElements
+    handleDrop
   }  
 }
