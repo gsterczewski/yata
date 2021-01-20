@@ -1,9 +1,12 @@
 
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
-import { filterStates } from "config";
+import { filterStates, stubTodos } from "config";
+import useLocalStore from "hooks/useLocalStore";
 
 export default function useTodos(){
+
+
 
   const filterTodos = (todos, filter) => {
     switch(filter){
@@ -16,29 +19,27 @@ export default function useTodos(){
     }
   }
 
-  const [todos, setTodos] = useState([{
-    id:"todo-1",
-    title:"do something",
-    isCompleted: false
-  },{
-    id:"todo-2",
-    title:"do something 2",
-    isCompleted: true
-  }])
-
+  const [todos, setTodos] = useState([])
   const [activeFilter, setActiveFilter] = useState(filterStates.all);
   const [todosLeft, setTodosLeft] = useState(0);
-  
   const [todosToShow, setTodosToShow] = useState(filterTodos(todos,activeFilter));
+  const store = useLocalStore("todos");
+  
+  // it should run once on mount
+  useEffect(()=>{
+    const itemsFromStore = store.getAll()
+    setTodos(itemsFromStore ? itemsFromStore : stubTodos);
+  },[])
 
   useEffect(()=>{
     setTodosToShow(filterTodos(todos,activeFilter))
   },[activeFilter,todos])
+  
   useEffect(()=>{
     setTodosLeft(todos.filter(todo => !todo.isCompleted).length)
-    
+    store.save(todos)
   },[todos])
-  
+    
   const showAllTodos = () => {
     
     setActiveFilter(filterStates.all)
