@@ -153,6 +153,9 @@ ul {
   font-size: 0.9rem;
   font-weight: 700;
 }
+.todos__clear-button:hover {
+  color: var(--item-color--active);
+}
 .filters {
   display: flex;
   justify-content: space-around;
