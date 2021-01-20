@@ -3,6 +3,7 @@ import "./global.css";
 import Header from "./components/header/Header";
 import BasicBar from "./components/BasicBar";
 import Todo from "./components/Todo";
+import TodosContainer from "./components/TodosContainer";
 import useDnd from "./hooks/dnd";
 function App(){
   const themes = Object.freeze({
@@ -12,7 +13,7 @@ function App(){
   const [activeTheme, setActiveTheme ] = useState(themes.light);
   const switchTheme = () => ( activeTheme === themes.light ? setActiveTheme(themes.dark) : setActiveTheme(themes.light) )
   const computedClass = `layout-wrapper theme-${activeTheme}`
-  
+  /*
   const [todos, setTodos] = useState([{
     id:"todo-1",
     title:"do something",
@@ -24,7 +25,7 @@ function App(){
   }])
   
   const { elements, handleDragenter, handleDragstart, handleDragover, handleDrop } = useDnd(todos, setTodos);
-    
+    */
   return (
         <div className={computedClass}>
             <Header theme ={activeTheme} handleSwitchTheme={switchTheme}/>
@@ -34,24 +35,8 @@ function App(){
               <span className="circle-indicator"></span>
               <input type="text" placeholder="Create a new todo" />
             </BasicBar>
-            <ul className="todos rounded">
-            {elements.map((todo,index) => 
-            <li key={todo.id} id={todo.id} style={{order: index + 1}} 
-              draggable="true" 
-              onDragStart={handleDragstart} 
-              onDragEnter={handleDragenter} 
-              onDragOver={handleDragover}
-              onDrop={handleDrop}>
-                <Todo todo={todo}></Todo>
-            </li>
-            )}
-            <li>
-            <BasicBar classes="todos__summary">
-              <span>5 items left</span>
-              <button>Clear Completed</button>
-            </BasicBar>
-            </li>
-            </ul>
+            <TodosContainer />      
+      
             <BasicBar  classes="filters rounded">
               <button className="filters__button filters__button--active">All</button>
               <button className="filters__button">Active</button>
