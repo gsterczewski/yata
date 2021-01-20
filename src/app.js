@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./global.css";
-import Header from "./components/header/Header";
-import TodosContainer from "./components/TodosContainer";
+import Header from "components/header/Header";
+import TodosContainer from "components/todo/TodosContainer";
 
 function App(){
   const themes = Object.freeze({

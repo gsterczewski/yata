@@ -1,6 +1,6 @@
 
 import React from "react";
-import BasicBar from "./BasicBar";
+import BasicBar from "components/BasicBar";
 
 export default function TodoFilters({handleShowAll, handleShowActive, handleShowCompleted}){
   return (

@@ -11,7 +11,9 @@ module.exports = {
     },
     resolve: {
       alias: {
-        assets: path.resolve(__dirname,"assets")
+        assets: path.resolve(__dirname,"assets"),
+        components: path.resolve(__dirname,"src/components"),
+        hooks: path.resolve(__dirname,"src/hooks")
       }
     },
     devtool: "inline-source-map",

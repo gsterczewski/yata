@@ -1,5 +1,5 @@
 import React from "react";
-import BasicBar from "./BasicBar";
+import BasicBar from "components/BasicBar";
 export default function Todo({todo, handleToggle, handleDelete}){
   const classes = {
     title : todo.isCompleted ? "todo__title todo__title--completed" : "todo__title",

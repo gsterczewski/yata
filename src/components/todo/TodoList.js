@@ -1,7 +1,7 @@
 
 import React from "react";
 import Todo from "./Todo";
-import BasicBar from "./BasicBar";
+import BasicBar from "components/BasicBar";
 
 export default function TodoList({todos, dndFunctions, todosLeft, deleteTodo, toggleTodo, handleClearCompleted}){
   return(

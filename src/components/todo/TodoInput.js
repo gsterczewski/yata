@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import BasicBar from "./BasicBar";
+import BasicBar from "components/BasicBar";
 
 export default function TodoInput({ handleAddTodo }){
   const [todoTitle, setTodoTitle] = useState("");

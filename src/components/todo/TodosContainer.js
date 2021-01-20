@@ -1,11 +1,11 @@
 
 import React from "react";
-import useDnd from "../hooks/dnd";
-import TodoList from "./TodoList";
-import TodoFilters from "./TodoFilters";
-import TodoInput from "./TodoInput";
-import useTodos from "../hooks/useTodos";
-
+import useDnd from "hooks/dnd";
+import TodoList from "components/todo/TodoList";
+import TodoFilters from "components/todo/TodoFilters";
+import TodoInput from "components/todo/TodoInput";
+import useTodos from "hooks/useTodos";
+import "./todo.css";
 export default function TodosContainer(){
   
   const { todos, addTodo, deleteTodo, toggleTodo, clearCompleted, todosLeft, setTodos } = useTodos();
