@@ -1,10 +1,8 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState } from "react";
 import "./global.css";
 import Header from "./components/header/Header";
-import BasicBar from "./components/BasicBar";
-import Todo from "./components/Todo";
 import TodosContainer from "./components/TodosContainer";
-import useDnd from "./hooks/dnd";
+
 function App(){
   const themes = Object.freeze({
     light: "light",
@@ -13,35 +11,12 @@ function App(){
   const [activeTheme, setActiveTheme ] = useState(themes.light);
   const switchTheme = () => ( activeTheme === themes.light ? setActiveTheme(themes.dark) : setActiveTheme(themes.light) )
   const computedClass = `layout-wrapper theme-${activeTheme}`
-  /*
-  const [todos, setTodos] = useState([{
-    id:"todo-1",
-    title:"do something",
-    isCompleted: false
-  },{
-    id:"todo-2",
-    title:"do something 2",
-    isCompleted: true
-  }])
   
-  const { elements, handleDragenter, handleDragstart, handleDragover, handleDrop } = useDnd(todos, setTodos);
-    */
   return (
         <div className={computedClass}>
             <Header theme ={activeTheme} handleSwitchTheme={switchTheme}/>
             <main className="main">
-
-            <BasicBar  classes="todo-input rounded">
-              <span className="circle-indicator"></span>
-              <input type="text" placeholder="Create a new todo" />
-            </BasicBar>
-            <TodosContainer />      
-      
-            <BasicBar  classes="filters rounded">
-              <button className="filters__button filters__button--active">All</button>
-              <button className="filters__button">Active</button>
-              <button className="filters__button">Completed</button>
-            </BasicBar>
+              <TodosContainer />      
             </main>
             <aside className="info">
               <p>Drag and drop to reorder the list</p>

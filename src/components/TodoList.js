@@ -6,8 +6,8 @@ import BasicBar from "./BasicBar";
 export default function TodoList({todos, dndFunctions, todosLeft, deleteTodo, toggleTodo, handleClearCompleted}){
   return(
     <ul className="todos rounded">
-            {todos.map((todo,index) => 
-            <li key={todo.id} id={todo.id} style={{order: index + 1}} 
+            {todos.map((todo) => 
+            <li key={todo.id} id={todo.id} 
               draggable="true" 
               onDragStart={dndFunctions.handleDragstart} 
               onDragEnter={dndFunctions.handleDragenter} 
