@@ -1,8 +1,10 @@
 :root {
   --font-family: "Josefin Sans", sans-serif;
   --color-bright-blue: hsl(220, 98%, 61%);
-  --color-check-background: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --color-check-background: linear-gradient(
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
   --vertical-gap: 1.2rem;
   --main-horizontal-padding: 1.2rem;
   --max-item-width: 500px;
@@ -96,7 +98,21 @@ ul {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 1px solid var(--color-grayish-blue--light);
+  border: 2px solid var(--color-grayish-blue--light);
+}
+.circle-indicator__overlay {
+  border-radius: 50%;
+  width: 95%;
+  height: 95%;
+  background-color: azure;
+}
+
+.circle-indicator--checked {
+  background: var(--color-check-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
 .main {
@@ -126,6 +142,9 @@ ul {
 
 .todo__title {
   flex-grow: 1;
+}
+.todo__title--completed {
+  text-decoration: line-through;
 }
 
 .todos__summary {
