@@ -21,8 +21,8 @@ const handleKeypress = event => {
 }
   return (
     <BasicBar classes="input-bar rounded">
-      <button onClick={submitTodo} className="circle-indicator"></button>
-      <input className="input-bar__input" onKeyDown={handleKeypress} type="text" placeholder="Create a new todo" onChange={handleChange} />
+      <button aria-label="submit todo" onClick={submitTodo} className="circle-indicator"></button>
+      <input aria-label="input todo title" className="input-bar__input" onKeyDown={handleKeypress} type="text" placeholder="Create a new todo" onChange={handleChange} />
     </BasicBar>
   )
 }

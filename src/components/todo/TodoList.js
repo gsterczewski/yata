@@ -3,7 +3,7 @@ import React from "react";
 import Todo from "./Todo";
 import BasicBar from "components/BasicBar";
 
-export default function TodoList({todos, dndFunctions, todosLeft, deleteTodo, toggleTodo, handleClearCompleted}){
+export default function TodoList({todos, dndFunctions,  deleteTodo, toggleTodo}){
   return(
     <ul className="todos rounded">
             {todos.map((todo) => 
@@ -17,10 +17,6 @@ export default function TodoList({todos, dndFunctions, todosLeft, deleteTodo, to
                 <Todo todo={todo} handleToggle={toggleTodo} handleDelete={deleteTodo}></Todo>
             </li>
             )}
-            <BasicBar classes="todos__summary">
-              <span>{todosLeft} items left</span>
-              <button className="todos__clear-button" onClick={handleClearCompleted}>Clear Completed</button>
-            </BasicBar>
       </ul>
   )
 }
