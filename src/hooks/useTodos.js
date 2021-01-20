@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 import { filterStates } from "config";
+
 export default function useTodos(){
 
   const filterTodos = (todos, filter) => {
@@ -85,13 +87,13 @@ export default function useTodos(){
     deleteTodo,
     clearCompleted,
     toggleTodo,
-    todosLeft,
     setTodos,
-    todos,
-    todosToShow,
     showActiveTodos,
     showAllTodos,
     showCompletedTodos,
+    todos,
+    todosToShow,
+    todosLeft,
     activeFilter
   }
 }

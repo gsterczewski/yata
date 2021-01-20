@@ -1,7 +1,19 @@
-.todo-input {
+.input-bar {
   margin-bottom: var(--vertical-gap);
 }
+.input-bar__input {
+  caret-color: var(--color-bright-blue);
+}
+.input-bar__input:focus {
+  color: var(--item-color--active);
+}
 
+.close-icon {
+  fill: var(--item-color);
+}
+.close-icon:hover {
+  fill: var(--item-color--active);
+}
 .todos {
   overflow: hidden;
   width: 100%;
@@ -15,12 +27,20 @@
   padding: 1rem;
   color: var(--item-color--active);
 }
+.todo:hover {
+  cursor: pointer;
+}
 
 .todo__title {
   flex-grow: 1;
+  max-width: 90%;
+  overflow: hidden;
+  padding-right: 10px;
+  text-overflow: ellipsis;
 }
 .todo__title--completed {
   text-decoration: line-through;
+  color: var(--item-color);
 }
 
 .todos__summary {
@@ -46,4 +66,13 @@
 }
 .filters__button--active {
   color: var(--color-bright-blue);
+}
+
+@media screen and (min-width: 760px) {
+  .todo__close-button {
+    visibility: hidden;
+  }
+  .todo:hover > .todo__close-button {
+    visibility: visible;
+  }
 }

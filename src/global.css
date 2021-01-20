@@ -36,13 +36,13 @@
   --color-grayish-blue--darkest: hsl(237, 14%, 26%);
 
   --delimiter-color: var(--color-grayish-blue--darker);
-  --item-background: var(--color-grayish-blue--darkest);
+  --item-background: var(--color-desaturatd-blue);
   --item-color: var(--color-grayish-blue--dark);
   --item-color--active: var(--color-grayish-blue--hover);
   --header-image: url("assets/images/bg-mobile-dark.jpg");
   --header-image--desktop: url("assets/images/bg-desktop-dark.jpg");
   --header-color: white;
-  background-color: var(--color-desaturatd-blue);
+  background-color: var(--color-blue--darker);
 }
 
 * {
@@ -100,13 +100,9 @@ ul {
   border-radius: 50%;
   border: 2px solid var(--color-grayish-blue--light);
 }
-.circle-indicator__overlay {
-  border-radius: 50%;
-  width: 95%;
-  height: 95%;
-  background-color: azure;
+.circle-indicator:hover {
+  border-color: var(--color-bright-blue);
 }
-
 .circle-indicator--checked {
   background: var(--color-check-background);
   display: flex;

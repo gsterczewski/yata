@@ -5,11 +5,15 @@
   background-size: cover;
   padding: 3.5rem var(--main-horizontal-padding) 0
     var(--main-horizontal-padding);
+  padding: 3.5rem 2rem 0 2rem;
+
   background-image: var(--header-image);
   color: var(--header-color);
 }
 
 .header__row {
+  max-width: var(--max-item-width);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
