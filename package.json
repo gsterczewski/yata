@@ -4,7 +4,8 @@
   "description": "todo application",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "dependencies": {
     "uuid": "^8.3.2"
