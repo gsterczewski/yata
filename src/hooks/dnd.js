@@ -8,6 +8,7 @@ function swapElementsInArray(arr, index1,index2){
   return copy;
 }
 export default function useDnd(collection, setter){
+  console.log(collection)
   const [draggedElement, setDraggedElement] = useState(null);
   
   function handleDragstart(event){
@@ -24,6 +25,14 @@ export default function useDnd(collection, setter){
 
   }
 
+  
+  function onDragend(index1,index2){
+    if(index1 !== index2){
+      // setter(swapElementsInArray(collection, index1, index2))
+      console.log(swapElementsInArray(collection, index1, index2))
+
+    }
+  }
   function handleDragenter(event){
     const currentTarget = event.currentTarget;  
     const currentElementIndex = collection.findIndex(element => element.id === currentTarget.getAttribute("id"))
@@ -33,6 +42,7 @@ export default function useDnd(collection, setter){
         setter(swapElementsInArray(collection, currentElementIndex, draggedElementIndex))
       }
   }
+
   function handleDragover(event){
     event.preventDefault();
   }
@@ -48,6 +58,8 @@ export default function useDnd(collection, setter){
     handleDragenter,
     handleDragover,
     handleDragend,
-    handleDrop  
+    handleDrop,
+  
+    onDragend  
   }  
 }

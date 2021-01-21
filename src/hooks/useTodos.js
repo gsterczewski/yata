@@ -36,6 +36,7 @@ export default function useTodos(){
   },[activeFilter,todos])
   
   useEffect(()=>{
+   
     setTodosLeft(todos.filter(todo => !todo.isCompleted).length)
     store.save(todos)
   },[todos])
