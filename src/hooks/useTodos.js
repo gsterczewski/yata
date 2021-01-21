@@ -66,7 +66,7 @@ export default function useTodos(){
   }
   const clearCompleted = () => {
     
-    const shouldDelete = window.confirm("Are your sure ?");
+    const shouldDelete = window.confirm("This will delete all of your completed todos from local storage");
     
     if(shouldDelete){
       setTodos(todos.filter(todo => !todo.isCompleted))

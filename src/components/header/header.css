@@ -13,6 +13,7 @@
 
 .header__row {
   max-width: var(--max-item-width);
+
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

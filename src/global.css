@@ -8,6 +8,7 @@
   --vertical-gap: 1.2rem;
   --main-horizontal-padding: 1.2rem;
   --max-item-width: 600px;
+
   --font-size: 0.85rem;
   --font-size--desktop: 1rem;
 }
@@ -19,6 +20,7 @@
   --color-grayish-blue--dark: hsl(236, 9%, 61%);
   --color-grayish-blue--darker: hsl(235, 19%, 35%);
 
+  --indicator-color: var(--color-grayish-blue--light);
   --item-background: var(--color-very-light-gray);
   --item-color: var(--color-grayish-blue--dark);
   --delimiter-color: var(--color-grayish-blue--light);
@@ -37,6 +39,7 @@
   --color-grayish-blue--darker: hsl(233, 14%, 35%);
   --color-grayish-blue--darkest: hsl(237, 14%, 26%);
 
+  --indicator-color: var(--color-grayish-blue--darkest);
   --delimiter-color: var(--color-grayish-blue--darker);
   --item-background: var(--color-desaturatd-blue);
   --item-color: var(--color-grayish-blue--dark);
@@ -98,6 +101,48 @@ ul {
   width: 100%;
   position: relative;
 }
+.theme-switch-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+@keyframes border-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.theme-switch-button::after {
+  opacity: 0;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: transparent;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+.theme-switch-button:hover::after,
+.theme-switch-button:focus::after {
+  animation: border-pulse 1s infinite;
+}
 
 .basic-bar {
   max-width: var(--max-item-width);
@@ -116,7 +161,7 @@ ul {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 2px solid var(--color-grayish-blue--light);
+  border: 2px solid var(--indicator-color);
 }
 .circle-indicator:hover,
 .circle-indicator:focus {
@@ -128,6 +173,10 @@ ul {
   justify-content: center;
   align-items: center;
   border: none;
+}
+.circle-indicator--checked:hover,
+.circle-indicator--checked:focus {
+  background: var(--color-bright-blue);
 }
 
 .main {
@@ -157,6 +206,7 @@ ul {
 .attribution__text {
   font-size: 0.9em;
   padding: 0 1px;
+  color: var(--item-color);
 }
 .attribution__link {
   color: var(--color-bright-blue);
