@@ -14,6 +14,7 @@ export default function useLocalStore(storeName){
   const saveItems = items => {
     try{
       localStorage.setItem(storeName, JSON.stringify(items))
+     
     }
     catch(err){
       console.error(err)

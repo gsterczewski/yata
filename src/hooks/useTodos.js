@@ -36,6 +36,7 @@ export default function useTodos(){
   },[activeFilter,todos])
   
   useEffect(()=>{
+   
     setTodosLeft(todos.filter(todo => !todo.isCompleted).length)
     store.save(todos)
   },[todos])
@@ -46,7 +47,7 @@ export default function useTodos(){
   }
   const showCompletedTodos = () => {
     setActiveFilter(filterStates.completed)
-    console.log(activeFilter)
+    
   }
   const showActiveTodos = () => {
     setActiveFilter(filterStates.active)
