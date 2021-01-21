@@ -11,7 +11,7 @@ export default function Todo({todo, handleToggle, handleDelete}){
   }
   return (
     <BasicBar classes="todo">
-    <button className={classes.indicator} onClick={handleClick}  role="checkbox" aria-checked={todo.isCompleted} aria-label="Toggle todo completed" tabIndex="0">
+    <button className={classes.indicator} onClick={handleClick}   aria-label="Toggle todo completed" >
       {todo.isCompleted && <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" strokeWidth="2" d="M1 4.304L3.696 7l6-6"/></svg>}
     </button>
       <p className={classes.title}>{todo.title}</p>
