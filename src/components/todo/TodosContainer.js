@@ -10,7 +10,7 @@ import "./todo.css";
 export default function TodosContainer(){
   
   const { addTodo, deleteTodo, toggleTodo, clearCompleted, todosLeft, setTodos, todosToShow, showAllTodos, showCompletedTodos, showActiveTodos, activeFilter } = useTodos();
-  //const  dndFunctions  = useDnd(todosToShow, setTodos);
+  
  
   return(
     <>

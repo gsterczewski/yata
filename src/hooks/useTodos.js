@@ -47,7 +47,7 @@ export default function useTodos(){
   }
   const showCompletedTodos = () => {
     setActiveFilter(filterStates.completed)
-    console.log(activeFilter)
+    
   }
   const showActiveTodos = () => {
     setActiveFilter(filterStates.active)
