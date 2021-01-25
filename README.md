@@ -9,4 +9,4 @@ Current version is complete, but major improvements are on the way.
 
 Live demo -> https://gs-yata.vercel.app/
 
-Designed by Frotnend Mentor
+Designed by Frontend Mentor
